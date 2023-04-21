@@ -1,0 +1,404 @@
+.loginForm,
+.loginButton {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.credentials,
+.rememberPassword {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.credentials label *,
+.showHidePassword *,
+.plusIcon {
+  width: 24px;
+  height: 24px;
+}
+.credentials label {
+  color: #fff;
+  transform: translateX(calc(100%));
+  background-color: var(--primary);
+  height: 3em;
+  width: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px 0 0 12px;
+}
+.credentials input {
+  border: 1px solid var(--primary);
+  border-radius: 12px;
+  height: 3em;
+  padding: 0 2em 0 calc(2em + 3em);
+  font-size: 1em;
+}
+.credentials input:focus-visible {
+  outline: unset;
+  box-shadow: inset 0px 0px 2px 0px var(--primary);
+}
+.showHidePassword {
+  border: unset;
+  background: none;
+  transform: translateX(calc(-100% - 1em));
+}
+.rememberPassword {
+  position: relative;
+  left: 3em;
+  margin-top: 16px;
+}
+.rememberPassword label {
+  cursor: pointer;
+  position: relative;
+}
+.rememberPassword input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2em;
+  width: 2em;
+  border-radius: 20%;
+  border: 1px solid var(--primary);
+  background-color: #fff;
+}
+.rememberPassword label {
+  display: flex;
+  align-items: center;
+  padding: 0.5em 3em;
+}
+.rememberPassword label:hover input ~ .checkmark {
+  background-color: var(--primary-gray);
+}
+.rememberPassword label:hover input:not(:checked) ~ .checkmark {
+  background-color: #d5e0df;
+}
+.rememberPassword input:checked ~ .checkmark {
+  background-color: var(--primary);
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.rememberPassword label input:checked ~ .checkmark:after {
+  display: block;
+}
+.rememberPassword label .checkmark:after {
+  left: 38%;
+  top: 24.5%;
+  width: 18%;
+  height: 38%;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+.loginButton,
+.createAccountButton {
+  font-size: 1.1em;
+  padding: 0.8em 0;
+  width: 420px;
+  border-radius: 12px;
+  border: unset;
+  color: #fff;
+  flex-direction: row;
+  justify-content: center;
+}
+.loginButton {
+  margin-top: 32px;
+  background-color: var(--primary);
+}
+.loginButton.hide {
+  font-size: 0;
+  padding: 0;
+}
+.createAccountButton {
+  margin-top: 16px;
+  background-color: var(--second);
+}
+.imageUpload {
+  margin-left: 1.5em;
+}
+.profilePictureTitle {
+  font-size: 1.2em;
+  transform: translateX(-0.1em);
+  margin: 24px 0 12px 0;
+  align-self: flex-start;
+}
+.dragAndDrop {
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 41.5em;
+  height: 12.8em;
+  border: 4px dashed var(--primary);
+}
+.dragAndDrop,
+.dragAndDrop *,
+.loginButton {
+  transition: all 0.8s ease-out;
+}
+.dragAndDrop.hide {
+  padding: 0;
+  height: 0;
+  border-width: 0;
+}
+.dragAndDrop.hide * {
+  font-size: 0;
+}
+.hasError {
+  animation: 0.6s hasErrorAnim 1.3s ease-out forwards;
+}
+
+.imgIcon {
+  width: 48px;
+  height: 48px;
+  color: var(--primary);
+}
+.label {
+  font-size: 1.2em;
+  text-align: center;
+}
+.label strong {
+  color: var(--second);
+}
+.imgFormat {
+  font-size: 0.8em;
+}
+.profilePicture {
+  object-fit: cover;
+  position: relative;
+  animation: profilePictureAnim 1s ease-out forwards;
+}
+.profilePicture.hide {
+  /* opacity: 0; */
+  clip-path: inset(100% round 0);
+}
+.profilePictureBackground {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  opacity: 0.95;
+  transform: scale(1.2);
+  filter: blur(24px);
+  clip-path: inset(8.3% 8.3% round 7px);
+  animation: profilePictureBackground 1.6s forwards;
+}
+
+.errorMessage {
+  position: absolute;
+  bottom: 0;
+  background-color: var(--error);
+  color: var(--error-text);
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  transition: all 0.3s var(--cubic-bezier) 0s;
+}
+.errorIcon {
+  width: 64px;
+  height: 64px;
+  transition: all 1s var(--cubic-bezier) 0s;
+  animation: 0.5s errorIconPopAnim;
+}
+.errorMessage.mini .errorIcon {
+  animation: 0.5s errorIconHideAnim forwards, 0.3s errorMiniIconPopAnim 0.5s forwards;
+}
+.errorMessage.mini {
+  animation: 1.31s changeFlexDirectionToRow forwards, 1s minifyErrorMessage 1s forwards;
+}
+
+.goToLoginButton {
+  border: unset;
+  background-color: transparent;
+  color: var(--primary);
+  margin-top: 8px;
+  font-size: 0.9em;
+  text-decoration: underline;
+  transition: all 0.6s ease-out;
+}
+.goToLoginButton.hide {
+  font-size: 0;
+}
+.submitError {
+  background-color: var(--error);
+  color: var(--error-text);
+  padding: 8px 16px;
+  border-radius: 6px;
+  position: relative;
+  top: 2.4em;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  animation: 0.8s submitErrorSpanAnim forwards;
+}
+.submitError span {
+  position: relative;
+  display: inline-block;
+  transition: all 0.6s ease-in-out;
+  opacity: 0.5;
+  transform: rotateY(-90deg);
+  animation: 0.8s submitErrorSpanAnim calc(0.02s * var(--index)) forwards;
+}
+.submitError span[style="--index:0;"] {
+  margin-left: 12px;
+}
+.submitError.hide,
+.submitError.hide * {
+  padding: 0;
+  font-size: 0;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+@keyframes submitErrorAnim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes submitErrorSpanAnim {
+  0% {
+    opacity: 0.5;
+    transform: rotateY(-90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+}
+@keyframes hasErrorAnim {
+  0% {
+  }
+  100% {
+    height: calc(12.8em + 2em);
+    padding-bottom: 2em;
+  }
+}
+@keyframes changeFlexDirectionToRow {
+  0% {
+  }
+  100% {
+    flex-direction: row;
+    gap: 8px;
+  }
+}
+@keyframes minifyErrorMessage {
+  0% {
+  }
+  100% {
+    height: 20%;
+  }
+}
+
+@keyframes errorIconPopAnim {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 64px;
+  }
+}
+@keyframes errorMiniIconPopAnim {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 24px;
+  }
+}
+@keyframes errorIconHideAnim {
+  0% {
+    width: 64px;
+  }
+  100% {
+    width: 0;
+  }
+}
+@keyframes errorMessage {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes profilePictureAnim {
+  0% {
+    width: 33%;
+    height: 100%;
+  }
+  100% {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+  }
+}
+@keyframes profilePictureBackground {
+  0% {
+    clip-path: inset(0% 0% round 8px);
+    filter: blur(1px);
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+    filter: blur(24px);
+    clip-path: inset(8.3% 8.3% round 7px);
+  }
+}
+@media screen and (width < 600px) {
+  .loginForm,
+  .dragAndDrop,
+  .imageUpload {
+    width: 100%;
+  }
+  .imageUpload {
+    margin-left: 0;
+  }
+  .credentials {
+    flex-direction: column;
+    margin-bottom: -28px;
+  }
+  .credentials label {
+    width: 48px;
+    height: 48px;
+    transform: translate(-136px, 16px);
+  }
+  .credentials input {
+    margin-top: -32px;
+    height: 48px;
+    width: 320px;
+  }
+  .showHidePassword {
+    transform: translate(136px, -132%);
+  }
+  .rememberPassword {
+    width: unset;
+    left: 1em;
+  }
+  .loginButton,
+  .createAccountButton {
+    width: 320px;
+  }
+}

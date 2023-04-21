@@ -1,0 +1,32 @@
+.container {
+  position: relative;
+  z-index: 99;
+  height: 48px;
+  padding: 0 16px;
+  background-color: #f56350;
+  filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.8));
+}
+.container.hide {
+  transform: translateY(-100%);
+}
+.container,
+.logoLink,
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logoLink {
+  gap: 4px;
+}
+.navContainer {
+  gap: 16px;
+}
+.link {
+  font-weight: 600;
+  color: #032e28;
+}
+.link:hover {
+  color: #011a1d;
+  border-bottom: 1px solid #011a1d;
+}

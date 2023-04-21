@@ -1,0 +1,48 @@
+.errorContainer {
+  background-color: var(--error);
+  color: var(--error-text);
+  padding: 8px 16px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  animation: 0.8s errorAnim forwards;
+}
+.errorContainer span {
+  position: relative;
+  display: inline-block;
+  transition: all 0.6s ease-in-out;
+  opacity: 0.5;
+  transform: rotateY(-90deg);
+  animation: 0.8s errorSpanAnim calc(0.02s * var(--index)) forwards;
+}
+.errorContainer span[style="--index:0;"] {
+  margin-left: 12px;
+}
+.errorContainer.hide,
+.errorContainer.hide * {
+  padding: 0;
+  font-size: 0;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+@keyframes errorAnim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes errorSpanAnim {
+  0% {
+    opacity: 0.5;
+    transform: rotateY(-90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+}

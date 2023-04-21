@@ -1,0 +1,218 @@
+.mainContainer,
+.savedLogin,
+.savedLoginContainer,
+.userCard,
+.createAccountButton,
+.titleSeparator,
+.circle {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.mainSection {
+  transition: all 0.6s var(--cubic-bezier);
+}
+.mainSection * {
+  transition: all 0.6s var(--cubic-bezier);
+}
+
+.mainContainer {
+  padding: 32px 64px;
+}
+.mainContainer.hideOnLogin {
+  opacity: 0;
+}
+.savedLogin {
+  align-items: flex-start;
+  transition: all 0.1s ease-in-out;
+}
+.savedLoginContainer {
+  margin-top: 16px;
+  flex-direction: row;
+  gap: 16px;
+  transition: all 0.1s ease-in-out;
+}
+.userCard {
+  justify-content: center;
+  width: 128px;
+  height: 128px;
+  border-radius: 20px;
+  border: 1px solid var(--background-dark);
+  background-color: #fff;
+  transition: all 0.1s ease-in-out;
+}
+
+.accountContainer {
+  border-radius: 20px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+.accountContainer:hover,
+.createAccountButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 20px -10px var(--second);
+}
+.accountContainer.hide {
+  animation: 1s deleteAccountAnim forwards;
+}
+
+.userCard img {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+.trashIcon {
+  z-index: 10;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  transition: all 0.2s ease-in-out;
+}
+.trashIcon:hover {
+  transform: scale(1.3);
+}
+.username {
+  margin-top: 16px;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+.lawyerIllustration {
+  width: 400px;
+  height: 311px;
+}
+.mainSection {
+  margin-top: 64px;
+  height: 311px;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  gap: 256px;
+}
+
+.mainSection .savedLogin {
+  height: 100%;
+  justify-content: flex-end;
+}
+.mainSection.hide h3 {
+  position: relative;
+  bottom: 40%;
+}
+.mainSection.hide .savedLogin {
+  height: 100%;
+}
+.trashIcon,
+.username,
+.loginTitle,
+.loginSubtitle,
+.titleSeparator h2 {
+  color: var(--primary);
+}
+.loginSubtitle {
+  text-align: center;
+  margin-top: 16px;
+}
+.loginTitle {
+  font-size: 3em;
+}
+.titleSeparator {
+  justify-content: center;
+  width: 100%;
+  background-color: var(--primary);
+  height: 2px;
+  margin: 4em 0;
+}
+.titleSeparator h2 {
+  width: min-content;
+  background-color: var(--background);
+  padding: 0 32px;
+  font-size: 2em;
+}
+
+.createAccountButton {
+  width: 128px;
+  height: 128px;
+  border-radius: 20px;
+  border: 1px solid var(--second-dark);
+  background-color: var(--second);
+  justify-content: center;
+}
+.circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px dashed var(--second-dark);
+  background-color: var(--second);
+}
+.createAccountButton p {
+  color: #fff;
+  margin-top: 13px;
+  font-size: 1.1em;
+  font-weight: 400;
+}
+.addUserIcon {
+  color: #fff;
+  transform: translate(13%, 25%);
+}
+.mainSection.hide,
+.mainSection.hide * {
+  margin-top: 0;
+  height: 0px;
+  font-size: 0;
+  border-width: 0;
+}
+@keyframes deleteAccountAnim {
+  0% {
+  }
+  50% {
+    transform: rotateZ(-45deg) scale(0.1);
+    width: 128px;
+  }
+  100% {
+    transform: rotateZ(-45deg) scale(0);
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+}
+@media screen and (width < 1200px) {
+  .mainContainer {
+    margin-top: -48px;
+  }
+  .mainSection {
+    flex-direction: column-reverse;
+    height: unset;
+    align-items: center;
+    gap: 32px;
+    margin-top: 32px;
+  }
+}
+@media screen and (width < 600px) {
+  .mainContainer {
+    padding: 8px 16px;
+  }
+  .savedLogin,
+  .mainSection {
+    width: 100%;
+  }
+  .mainSection {
+    margin-top: 32px;
+    height: unset;
+    align-items: center;
+    gap: 32px;
+  }
+  .savedLogin {
+    align-items: center;
+  }
+  .savedLoginContainer {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .titleSeparator {
+    margin-bottom: 2em;
+  }
+}
