@@ -11,6 +11,7 @@ L'application a été réalisée sous **NextJS 13**, en **Typescript**. La base 
 ## Installation
 
 1/ Ouvrir le fichier `schema.sql` et définir un mot de passe pour l'utilisateur (ligne 18)  
+Exécutez les commandes SQL présentes dans le fichier  
 2/ Ouvrir le fichier `next.config.js` définir les variables d'environnement suivantes :  
 - `OPENAI_API_KEY` https://platform.openai.com/account/api-keys
 - `MYSQL_PASSWORD` Le mot de passe que vous avez définit précédemment dans schema.sql
