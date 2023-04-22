@@ -1,6 +1,8 @@
 
 # Legal GPT
 
+**Vidéo de présentation** : https://www.youtube.com/watch?v=Mrd5dw8m3hc  
+  
 Un Chatbot IA spécialisé dans le code du travail en france, peut également répondre aux questions sur le code pénal.  
 Legal GPT peut répondre à vos questions que vous soyez employé, employeur, freelance, sans emploi, ou tout autre situation.  
   
